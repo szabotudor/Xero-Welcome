@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Welcome.gd" type="Script" id=1]
+[ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=3]
+
+[node name="Welcome" type="Node2D" groups=["Menu"]]
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Grid" type="GridContainer" parent="."]
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 960.0
+margin_bottom = 576.0
+size_flags_horizontal = 7
+theme = ExtResource( 2 )
+columns = 2
+script = ExtResource( 1 )
+
+[node name="Update" type="Button" parent="Grid"]
+margin_right = 418.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+text = "Update System Now"
+
+[node name="Rices" type="Button" parent="Grid"]
+margin_left = 498.0
+margin_right = 898.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+text = "XeroLinux Rices"
+
+[node name="Apps" type="Button" parent="Grid"]
+margin_top = 62.0
+margin_right = 418.0
+margin_bottom = 104.0
+size_flags_horizontal = 7
+text = "XeroLinux App Installer"
+
+[node name="Configs" type="Button" parent="Grid"]
+margin_left = 498.0
+margin_top = 62.0
+margin_right = 898.0
+margin_bottom = 104.0
+size_flags_horizontal = 7
+text = "Various System Configs"
+
+[node name="Apply" type="Button" parent="Grid"]
+margin_top = 124.0
+margin_right = 418.0
+margin_bottom = 166.0
+size_flags_horizontal = 7
+text = "Apply New Changes"
+
+[node name="Disable Autostart" type="Button" parent="Grid"]
+margin_left = 498.0
+margin_top = 124.0
+margin_right = 898.0
+margin_bottom = 166.0
+size_flags_horizontal = 7
+text = "Disable Autostart"
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 248.0
+margin_right = 962.0
+margin_bottom = 290.0
+size_flags_horizontal = 7
+theme = ExtResource( 2 )
+text = "Exit"
+
+[connection signal="pressed" from="Grid/Update" to="Grid" method="_on_Update_pressed"]
+[connection signal="pressed" from="Grid/Rices" to="Grid" method="_on_Rices_pressed"]
+[connection signal="pressed" from="Grid/Apps" to="Grid" method="_on_Apps_pressed"]
+[connection signal="pressed" from="Exit" to="Grid" method="_on_Exit_pressed"]
