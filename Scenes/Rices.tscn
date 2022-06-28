@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Rices.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=3]
+
+[node name="Rices" type="Node2D" groups=["Menu"]]
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Grid" type="GridContainer" parent="."]
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 960.0
+size_flags_horizontal = 7
+theme = ExtResource( 1 )
+columns = 2
+script = ExtResource( 2 )
+
+[node name="Preview" type="Button" parent="Grid"]
+margin_right = 408.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+text = "Rices Preview"
+
+[node name="Rices" type="Button" parent="Grid"]
+margin_left = 488.0
+margin_right = 896.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+text = "Launch Rice Switcher"
+
+[node name="Back" type="Button" parent="."]
+margin_left = 88.0
+margin_top = 120.0
+margin_right = 936.0
+margin_bottom = 162.0
+size_flags_horizontal = 7
+theme = ExtResource( 1 )
+text = "Back"
+
+[connection signal="pressed" from="Grid/Preview" to="Grid" method="_on_Preview_pressed"]
+[connection signal="pressed" from="Grid/Rices" to="Grid" method="_on_Rices_pressed"]
+[connection signal="pressed" from="Back" to="Grid" method="_on_Back_pressed"]

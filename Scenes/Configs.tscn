@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/Configs.gd" type="Script" id=3]
+
+[node name="Configs" type="Node2D" groups=["Menu"]]
+script = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Grid" type="GridContainer" parent="."]
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 978.0
+margin_bottom = 288.0
+size_flags_horizontal = 7
+theme = ExtResource( 2 )
+columns = 2
+script = ExtResource( 3 )
+
+[node name="Shell" type="Button" parent="Grid"]
+margin_right = 444.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+text = "Switch to ZSH Shell"
+
+[node name="Update bash" type="Button" parent="Grid"]
+margin_left = 524.0
+margin_right = 938.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+text = "Update .bashrc/.zshrc"
+
+[node name="Kvm" type="Button" parent="Grid"]
+margin_top = 62.0
+margin_right = 444.0
+margin_bottom = 104.0
+size_flags_horizontal = 7
+text = "Install KVM/Virt-Manager"
+
+[node name="Snapper" type="Button" parent="Grid"]
+margin_left = 524.0
+margin_top = 62.0
+margin_right = 938.0
+margin_bottom = 104.0
+size_flags_horizontal = 7
+text = "Initialize Snapper"
+
+[node name="Firewall" type="Button" parent="Grid"]
+margin_top = 124.0
+margin_right = 444.0
+margin_bottom = 166.0
+size_flags_horizontal = 7
+text = "Install/Enable Firewall"
+
+[node name="HBlock" type="Button" parent="Grid"]
+margin_left = 524.0
+margin_top = 124.0
+margin_right = 938.0
+margin_bottom = 166.0
+size_flags_horizontal = 7
+text = "Install/Enable HBlock"
+
+[node name="Back" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 240.0
+margin_right = 962.0
+margin_bottom = 282.0
+size_flags_horizontal = 7
+theme = ExtResource( 2 )
+text = "Back"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 320.0
+margin_right = 422.0
+margin_bottom = 350.0
+theme = ExtResource( 2 )
+text = "*Currently, SHELL is selected"
+
+[connection signal="pressed" from="Grid/Shell" to="Grid" method="_on_Shell_pressed"]
+[connection signal="pressed" from="Grid/Update bash" to="Grid" method="_on_Update_bash_pressed"]
+[connection signal="pressed" from="Grid/Kvm" to="Grid" method="_on_Kvm_pressed"]
+[connection signal="pressed" from="Grid/Snapper" to="Grid" method="_on_Snapper_pressed"]
+[connection signal="pressed" from="Grid/Firewall" to="Grid" method="_on_Firewall_pressed"]
+[connection signal="pressed" from="Grid/HBlock" to="Grid" method="_on_HBlock_pressed"]
+[connection signal="pressed" from="Back" to="Grid" method="_on_Back_pressed"]
